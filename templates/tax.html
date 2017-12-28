@@ -55,7 +55,7 @@
               <a class="nav-link" href="#">Credits</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Source Code</a>
+              <a class="nav-link" href="https://github.com/vickyg3/taxdiff" target="_blank">Source Code</a>
             </li>
           </ul>
         </div>
@@ -175,6 +175,11 @@
                 You pay <font color="red">${{ taxdiff }}</font> more in the new system! :(
               {% endif %}
             </h2>
+            <br/><br/>
+            <h6>
+              <a href="javascript:void(0);" onclick="makeShort()" id="shorturlgenerate">Generate Short URL for this calculation</a>
+              <span id="shorturlstatus" style="display: none;"></span>
+            </h6>
           {% endif %}
         </div>
 
@@ -200,6 +205,33 @@
     <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="//apis.google.com/js/client.js"> </script>
+    <script>
+        function makeShort() {
+          $('#shorturlgenerate').hide();
+          $('#shorturlstatus').html('Generating ...');
+          $('#shorturlstatus').show();
+          var request = gapi.client.urlshortener.url.insert({
+            'resource': {
+              'longUrl': window.location.href
+            }
+          });
+          request.execute(function(response) {
+            var wstr = '';
+            wstr += 'Short URL for this calculation: ';
+            wstr += '<a href="' + response.id + '" target="_blank">';
+            wstr += response.id;
+            wstr += '</a>';
+            $('#shorturlstatus').html(wstr);
+          });
+        }
+
+        function googleLoad() {
+          gapi.client.setApiKey('AIzaSyBnNqg_nCaPxpoqsqNoeJvEb3WQyrZ4lyc'); 
+          gapi.client.load('urlshortener', 'v1',function(){});
+        }
+        window.onload = googleLoad;
+    </script>
 
   </body>
 
