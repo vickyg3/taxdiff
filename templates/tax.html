@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>TaxDiff</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{{ form_css }}">
+    <link href='//fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <style>
+      body {
+        padding-top: 54px;
+      }
+      @media (min-width: 992px) {
+        body {
+          padding-top: 56px;
+        }
+      }
+
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">TaxDiff</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Credits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Source Code</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+      <div class="row main">
+        <div class="main-login main-center col-sm-4">
+          <!--<h1 class="mt-5">Your income scenario</h1>-->
+          <form action="/" method="get">
+          <div class="form-group">
+            <label for="wages" class="cols-sm-2 control-label">Wages (W2 box 1)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="wages" id="wages" placeholder="0" value="{{ wages }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="interest" class="cols-sm-2 control-label">Interest Income</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="interest" id="interest" placeholder="0" value="{{ interest }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="dividends" class="cols-sm-2 control-label">Dividends</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="dividends" id="dividends" placeholder="0" value="{{ dividends }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="state_tax_refunds" class="cols-sm-2 control-label">State/Local Tax refunds from previous year</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="state_tax_refunds" id="state_tax_refunds" placeholder="0" value="{{ state_tax_refunds }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="short_term_gains" class="cols-sm-2 control-label">Short Term Capital Gains</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="short_term_gains" id="short_term_gains" placeholder="0" value="{{ short_term_gains }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="long_term_gains" class="cols-sm-2 control-label">Long Term Capital Gains</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="long_term_gains" id="long_term_gains" placeholder="0" value="{{ long_term_gains }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hsa" class="cols-sm-2 control-label">HSA Contributions (not included in W2)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="hsa" id="hsa" placeholder="0" value="{{ hsa }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="mortgage" class="cols-sm-2 control-label">Mortgage interest paid</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="mortgage" id="mortgage" placeholder="0" value="{{ mortgage }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="state_taxes" class="cols-sm-2 control-label">State and Local Taxes (SALT)</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" name="state_taxes" id="state_taxes" placeholder="0" value="{{ state_taxes }}"/>
+              </div>
+            </div>
+          </div>
+          <div class="form-group ">
+            <input type="submit" id="calculate" name="calculate" value="Calculate!" class="btn btn-primary btn-lg btn-block login-button" />
+          </div>
+          </form>
+        </div>
+
+        <div class="col-sm-4">
+          {% if calculate %}
+            <h3>Current Taxes</h3>
+            <ul class="list-unstyled">
+              <li>Total Income: ${{ data1['total_income'] }}</li>
+              <li>Adjusted Gross Income (AGI): ${{ data1['agi'] }}</li>
+              <li>Deductions: ${{ data1['deductions'] }}</li>
+              <li>Taxable Income: ${{ data1['taxable_income'] }}</li>
+              <li>Regular Taxes: ${{ data1['taxes'] }}</li>
+              <li>Alternative Minimum Taxes: ${{ data1['alternative'] }}</li>
+              <li>Total Tax Owed: ${{ data1['total_taxes'] }}</li>
+              <li>Effective Tax Rate: {{ data1['effective_rate'] }}%</li>
+            </ul>
+            <h2>
+              {% if gain %}
+                You pay <font color="green">${{ taxdiff }}</font> less in the new system! :)
+              {% else %}
+                You pay <font color="red">${{ taxdiff }}</font> more in the new system! :(
+              {% endif %}
+            </h2>
+          {% endif %}
+        </div>
+
+        <div class="col-sm-4">
+          {% if calculate %}
+            <h3>New Taxes</h3>
+            <ul class="list-unstyled">
+              <li>Total Income: ${{ data2['total_income'] }}</li>
+              <li>Adjusted Gross Income (AGI): ${{ data2['agi'] }}</li>
+              <li>Deductions: ${{ data2['deductions'] }}</li>
+              <li>Taxable Income: ${{ data2['taxable_income'] }}</li>
+              <li>Regular Taxes: ${{ data2['taxes'] }}</li>
+              <li>Alternative Minimum Taxes: ${{ data2['alternative'] }}</li>
+              <li>Total Tax Owed: ${{ data2['total_taxes'] }}</li>
+              <li>Effective Tax Rate: {{ data2['effective_rate'] }}%</li>
+            </li>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="//code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" crossorigin="anonymous"></script>
+
+  </body>
+
+</html>
